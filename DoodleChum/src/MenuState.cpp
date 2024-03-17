@@ -75,7 +75,7 @@ MenuState::MenuState(xy::StateStack& stack, Context context, const sf::Font& fon
     m_tabs.setScale(2.f, 2.f);
 
     m_versionNumber.setFont(font);
-    m_versionNumber.setString("V:1.0.0");
+    m_versionNumber.setString("V:1.0.1");
     m_versionNumber.setFillColor(sf::Color::Black);
     m_versionNumber.setPosition(xy::DefaultSceneSize.x - (m_versionNumber.getLocalBounds().width + numberPadding),
                                 xy::DefaultSceneSize.y - (m_versionNumber.getLocalBounds().height + numberPadding));
@@ -231,7 +231,9 @@ void MenuState::buildHelp()
     });
     m_helpContainer.addControl(button);
 
-    auto marquee = xy::UI::create<xy::UI::Marquee>(m_font, sf::Vector2u(800, 50));
+    //hmmmm creating a marquee seems to mess up the internal GL state - and is
+    //almost certainly a symptom of a much bigger problem...
+    /*auto marquee = xy::UI::create<xy::UI::Marquee>(m_font, sf::Vector2u(800, 50));
     marquee->setAlignment(xy::UI::Alignment::Centre);
     marquee->setPosition(xy::DefaultSceneSize.x / 2.f, 770.f);
     marquee->move(-containerOffset);
@@ -242,7 +244,7 @@ void MenuState::buildHelp()
     marquee->addString("Dont like Bobs music? Place your own in the music folder and Bob will play something you do like!");
     marquee->addString("Tip: You can return to this menu at any time by pressing P, Pause or Escape");
     marquee->addString("Tip: if you dont want to listen to the entire musical reptoire, then disable playing the full track in the options menu");
-    m_helpContainer.addControl(marquee);
+    m_helpContainer.addControl(marquee);*/
 }
 
 void MenuState::buildOptions()
@@ -466,12 +468,12 @@ void MenuState::buildCredits()
     });
     m_creditsContainer.addControl(button);
 
-    auto marquee = xy::UI::create<xy::UI::Marquee>(m_font, sf::Vector2u(800, 50));
+    /*auto marquee = xy::UI::create<xy::UI::Marquee>(m_font, sf::Vector2u(800, 50));
     marquee->setAlignment(xy::UI::Alignment::Centre);
     marquee->setPosition(xy::DefaultSceneSize.x / 2.f, 770.f);
     marquee->setTextColour(sf::Color::Black);
     marquee->setScrollSpeed(100.f);
     marquee->addString("Special mention goes to: Jonny for his contributions to xygine, Doris for the exemplary xygine logo, Jo & Jamz for their creative input");
     marquee->addString("And not to forget Malone and Jon for being just plain wonderful people!");
-    m_creditsContainer.addControl(marquee);
+    m_creditsContainer.addControl(marquee);*/
 }

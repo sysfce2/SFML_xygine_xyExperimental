@@ -29,6 +29,7 @@ source distribution.
 #define DC_ATTRIB_MAN_HPP_
 
 #include <array>
+#include <string>
 
 namespace xy
 {

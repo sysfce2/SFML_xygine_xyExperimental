@@ -70,6 +70,8 @@ source distribution.
 #include <SFML/Window/Event.hpp>
 #include <SFML/Audio/Listener.hpp>
 
+#include <algorithm>
+
 namespace
 {
     const sf::Vector2f bobSize(100.f, 200.f);
@@ -1529,7 +1531,7 @@ void WorldClientState::initSounds()
     entity = xy::Entity::create(m_messageBus);
     entity->addCommandCategories(Command::TVAudio);
     fileList = xy::FileSystem::listFiles(TVPath);
-    std::random_shuffle(std::begin(fileList), std::end(fileList));
+    std::shuffle(std::begin(fileList), std::end(fileList),xy::Util::Random::rndEngine);
     count = 0;
     for (const auto& f : fileList)
     {

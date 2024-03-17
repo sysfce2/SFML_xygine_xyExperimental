@@ -1,4 +1,4 @@
-const std::array<std::string, AttribManager::Personal::Count> personalNames =
+static const inline std::array<std::string, AttribManager::Personal::Count> personalNames =
 {
     "Health",
     "Hunger",
@@ -9,7 +9,7 @@ const std::array<std::string, AttribManager::Personal::Count> personalNames =
     "Boredness"
 };
 
-const std::array<std::string, AttribManager::Household::Count> householdNames =
+static const inline std::array<std::string, AttribManager::Household::Count> householdNames =
 {
     "Food",
     "Water",
